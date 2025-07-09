@@ -24,11 +24,25 @@ public class BuildingAPI {
 
 	@GetMapping(value = "/api/building/")
 	public List<BuildingDTO> getBuilding(@RequestParam(name = "name", required = false) String name,
-			@RequestParam(name = "districtid", required = false) Long district) {
-		List<BuildingDTO> result = buildingService.findAll(name, district);
+										@RequestParam(name = "districtId", required = false) Long district,
+										@RequestParam(name = "ward", required = false) String ward,
+										@RequestParam(name = "street", required = false) String street,
+										@RequestParam(name = "numberOfBasement", required = false) Long numberOfBasement,
+										@RequestParam(name = "direction", required = false) String direction,
+										@RequestParam(name = "minFloorArea", required = false) Integer minFloorArea,
+										@RequestParam(name = "maxFloorArea", required = false) Integer maxFloorArea,
+										@RequestParam(name = "minRentPrice", required = false) Integer minRentPrice,
+										@RequestParam(name = "maxRentPrice", required = false) Integer maxRentPrice,
+										@RequestParam(name = "floorArea", required = false) Integer floorArea,
+										@RequestParam(name = "managerName", required = false) String managerName,
+										@RequestParam(name = "managerPhoneNumber", required = false) String managerPhoneNumber,
+										@RequestParam(name = "staffId", required = false) Long staff,
+										@RequestParam(name = "typeCode", required = false) List<String> typeCode,
+										@RequestParam(name = "level", required = false) Long level) {
+		List<BuildingDTO> result = buildingService.findByNameDistrictWard(name, district, ward);
 		return result;
-
 	}
+	
 
 //	@PostMapping(value = "/api/building/")
 //	public Object postBuilding(@RequestBody BuildingDTO building) {

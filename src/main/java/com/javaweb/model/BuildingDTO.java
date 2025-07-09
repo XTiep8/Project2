@@ -4,6 +4,24 @@ public class BuildingDTO {
 	private String name;
 	private Integer numberOfBasement;
 	private String address;
+	private String managerName;
+	private String managerPhoneNumber;
+	
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+
+	public String getManagerPhoneNumber() {
+		return managerPhoneNumber;
+	}
+
+	public void setManagerPhoneNumber(String managerPhoneNumber) {
+		this.managerPhoneNumber = managerPhoneNumber;
+	}
 
 	public String getName() {
 		return name;

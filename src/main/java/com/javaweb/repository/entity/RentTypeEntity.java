@@ -1,6 +1,6 @@
 package com.javaweb.repository.entity;
 
-public class DistrictEntity {
+public class RentTypeEntity {
 	private Long id;
 	private String code;
 	private String name;
@@ -22,4 +22,5 @@ public class DistrictEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 }
