@@ -30,19 +30,19 @@ public class BuildingAPI {
 
 	}
 
-	@PostMapping(value = "/api/building/")
-	public Object postBuilding(@RequestBody BuildingDTO building) {
-		//
-		valiDate(building);
-		return null;
-	}
-
-	public void valiDate(BuildingDTO buildingDTO) {
-		if (buildingDTO.getName() == null || buildingDTO.getName().equals("")
-				|| buildingDTO.getNumberOfBasement() == null) {
-			throw new FieldRequiredException("Khong duoc de trong truong nao");
-		}
-	}
+//	@PostMapping(value = "/api/building/")
+//	public Object postBuilding(@RequestBody BuildingDTO building) {
+//		//
+//		valiDate(building);
+//		return null;
+//	}
+//
+//	public void valiDate(BuildingDTO buildingDTO) {
+//		if (buildingDTO.getName() == null || buildingDTO.getName().equals("")
+//				|| buildingDTO.getNumberOfBasement() == null) {
+//			throw new FieldRequiredException("Khong duoc de trong truong nao");
+//		}
+//	}
 
 	@DeleteMapping(value = "api/building/{id}/{name}")
 	public void deleteBuilding(@PathVariable Integer id, @PathVariable String name,
