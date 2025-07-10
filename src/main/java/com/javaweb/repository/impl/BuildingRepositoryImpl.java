@@ -25,7 +25,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 			sql.append("AND b.name like '%" + name + "%' ");
 		}
 		if (ward != null && !ward.equals("")) {
-			sql.append("AND b.name like '%" + ward + "%' ");
+			sql.append("AND b.ward like '%" + ward + "%' ");
 		}
 		if (districtId != null) {
 			sql.append("AND b.districtid = " + districtId + " ");
@@ -46,15 +46,34 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	}
 
 	@Override
-	public List<BuildingEntity> findByStreetBasementDirection(String street, Integer minNumberOfBasement,
+	public List<BuildingEntity> findByStreetBasementDirection(String street, Integer numberOfBasement,
 			String direction) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sql = new StringBuilder("SELECT * FROM building b WHERE 1=1 ");
+		if (street != null && !street.equals("")) {
+			sql.append("AND b.street like '%" + street + "%' ");
+		}
+		if(direction != null && !direction.equals("")) {
+			sql.append("AND b.direction like '%" + direction + "%' ");
+		}
+		if (numberOfBasement != null) {
+			sql.append("AND b.numberOfBasement = " + numberOfBasement + " ");
+		}
+		List<BuildingEntity> result = new ArrayList<>();
+		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql.toString());){
+			while ( rs.next()) {
+				result.add(mapResultSetToBuilding(rs));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public List<BuildingEntity> findByFloorAreaRange(Integer minFloorArea, Integer maxFloorArea) {
-		// TODO Auto-generated method stub
+		StringBuilder sql = new StringBuilder("SELECT * FROM building b WHERE 1=1 ");
 		return null;
 	}
 
@@ -82,7 +101,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		return null;
 	}
 
-	// Hàm tiện ích để ánh xạ ResultSet sang Building
+	// Hàm tiện ích để ánh xạ ResultSet sang BuildingEntity
 	private BuildingEntity mapResultSetToBuilding(ResultSet rs) throws SQLException {
 		BuildingEntity building = new BuildingEntity();
 		building.setId(rs.getLong("id"));

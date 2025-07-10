@@ -9,7 +9,7 @@ public interface BuildingRepository {
 	List<BuildingEntity> findByNameDistrictWard(String name, Long districtId, String ward);
 
 	// tim kiem theo duong, so tang ham, huong
-	List<BuildingEntity> findByStreetBasementDirection(String street, Integer minNumberOfBasement, String direction);
+	List<BuildingEntity> findByStreetBasementDirection(String street, Integer numberOfBasement, String direction);
 
 	// tim kiem theo dien tich san
 	List<BuildingEntity> findByFloorAreaRange(Integer minFloorArea, Integer maxFloorArea);

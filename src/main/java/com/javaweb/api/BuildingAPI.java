@@ -27,7 +27,7 @@ public class BuildingAPI {
 										@RequestParam(name = "districtId", required = false) Long district,
 										@RequestParam(name = "ward", required = false) String ward,
 										@RequestParam(name = "street", required = false) String street,
-										@RequestParam(name = "numberOfBasement", required = false) Long numberOfBasement,
+										@RequestParam(name = "numberOfBasement", required = false) Integer numberOfBasement,
 										@RequestParam(name = "direction", required = false) String direction,
 										@RequestParam(name = "minFloorArea", required = false) Integer minFloorArea,
 										@RequestParam(name = "maxFloorArea", required = false) Integer maxFloorArea,

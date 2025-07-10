@@ -10,7 +10,7 @@ public interface BuildingService {
 		List<BuildingDTO> findByNameDistrictWard(String name, Long districtId, String ward);
 
 		// tim kiem theo duong, so tang ham, huong
-		List<BuildingDTO> findByStreetBasementDirection(String street, Integer minNumberOfBasement, String direction);
+		List<BuildingDTO> findByStreetBasementDirection(String street, Integer numberOfBasement, String direction);
 
 		// tim kiem theo dien tich san
 		List<BuildingDTO> findByFloorAreaRange(Integer minFloorArea, Integer maxFloorArea);

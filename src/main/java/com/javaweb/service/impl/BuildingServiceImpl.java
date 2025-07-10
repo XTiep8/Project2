@@ -25,30 +25,78 @@ public class BuildingServiceImpl implements BuildingService {
 			BuildingDTO building = new BuildingDTO();
 			building.setName(item.getName());
 			building.setAddress(item.getStreet() + ',' + item.getWard());
+			building.setNumberOfBasement(item.getNumberOfBasement());
 			building.setManagerName(item.getManagerName());
 			building.setManagerPhoneNumber(item.getManagerPhoneNumber());
+			building.setFloorArea(item.getFloorArea());
+			building.setRentPrice(item.getRentPrice());
+			building.setServiceFee(item.getServiceFee());
+			building.setBrokerageFee(item.getBrokerageFee());
 			result.add(building);
 		}
 		return result;
 	}
 
 	@Override
-	public List<BuildingDTO> findByStreetBasementDirection(String street, Integer minNumberOfBasement,
+	public List<BuildingDTO> findByStreetBasementDirection(String street, Integer numberOfBasement,
 			String direction) {
 		// TODO Auto-generated method stub
-		return null;
+		List<BuildingEntity> buildingEntities = buildingRepository.findByStreetBasementDirection(street, numberOfBasement, direction);
+		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
+		for (BuildingEntity item : buildingEntities) {
+			BuildingDTO building = new BuildingDTO();
+			building.setName(item.getName());
+			building.setAddress(item.getStreet() + ',' + item.getWard());
+			building.setNumberOfBasement(item.getNumberOfBasement());
+			building.setManagerName(item.getManagerName());
+			building.setManagerPhoneNumber(item.getManagerPhoneNumber());
+			building.setFloorArea(item.getFloorArea());
+			building.setRentPrice(item.getRentPrice());
+			building.setServiceFee(item.getServiceFee());
+			building.setBrokerageFee(item.getBrokerageFee());
+			result.add(building);
+		}
+		return result;
 	}
 
 	@Override
 	public List<BuildingDTO> findByFloorAreaRange(Integer minFloorArea, Integer maxFloorArea) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BuildingEntity> buildingEntities = buildingRepository.findByFloorAreaRange(minFloorArea, maxFloorArea);
+		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
+		for (BuildingEntity item : buildingEntities) {
+			BuildingDTO building = new BuildingDTO();
+			building.setName(item.getName());
+			building.setAddress(item.getStreet() + ',' + item.getWard());
+			building.setNumberOfBasement(item.getNumberOfBasement());
+			building.setManagerName(item.getManagerName());
+			building.setManagerPhoneNumber(item.getManagerPhoneNumber());
+			building.setFloorArea(item.getFloorArea());
+			building.setRentPrice(item.getRentPrice());
+			building.setServiceFee(item.getServiceFee());
+			building.setBrokerageFee(item.getBrokerageFee());
+			result.add(building);
+		}
+		return result;
 	}
 
 	@Override
 	public List<BuildingDTO> findByRentPriceRange(Integer minRentPrice, Integer maxRentPrice) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BuildingEntity> buildingEntities = buildingRepository.findByRentPriceRange(minRentPrice, maxRentPrice);
+		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
+		for (BuildingEntity item : buildingEntities) {
+			BuildingDTO building = new BuildingDTO();
+			building.setName(item.getName());
+			building.setAddress(item.getStreet() + ',' + item.getWard());
+			building.setNumberOfBasement(item.getNumberOfBasement());
+			building.setManagerName(item.getManagerName());
+			building.setManagerPhoneNumber(item.getManagerPhoneNumber());
+			building.setFloorArea(item.getFloorArea());
+			building.setRentPrice(item.getRentPrice());
+			building.setServiceFee(item.getServiceFee());
+			building.setBrokerageFee(item.getBrokerageFee());
+			result.add(building);
+		}
+		return result;
 	}
 
 	@Override
