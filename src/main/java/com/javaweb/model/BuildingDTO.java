@@ -9,6 +9,15 @@ public class BuildingDTO {
 	private String managerName;
 	private String managerPhoneNumber;
 	private Long floorArea;
+	private String emptyArea;
+	public String getEmptyArea() {
+		return emptyArea;
+	}
+
+	public void setEmptyArea(String emptyArea) {
+		this.emptyArea = emptyArea;
+	}
+
 	private Integer rentPrice;
 	private String serviceFee;
 	private BigDecimal brokerageFee;
