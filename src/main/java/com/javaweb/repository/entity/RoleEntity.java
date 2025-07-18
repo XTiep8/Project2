@@ -1,15 +1,50 @@
 package com.javaweb.repository.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+//@Entity
+//@Table(name="role")
 public class RoleEntity {
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="name", nullable = false)
 	private String name;
+	
+	@Column(name="code",nullable = false)
 	private String code;
+	
+	@Column(name="createddate")
 	private Date createdDate;
+	
+	@Column(name="modifieddate")
 	private Date modifiedDate;
+	
+	@Column(name="createdby")
 	private String createdBy;
+	
+	@Column(name="modifiedby")
 	private String modifiedBy;
+	
+	@OneToMany(mappedBy = "role",fetch = FetchType.LAZY)
+	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
+	public List<UserRoleEntity> getUserRoleEntities() {
+		return userRoleEntities;
+	}
+	public void setUserRoleEntities(List<UserRoleEntity> userRoleEntities) {
+		this.userRoleEntities = userRoleEntities;
+	}
 	public Long getId() {
 		return id;
 	}

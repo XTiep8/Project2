@@ -2,31 +2,51 @@ package com.javaweb.repository.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+//@Entity
+//@Table(name="rentarea")
 public class RentAreaEntity {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Integer value;
-	private Long buildingId;
+	@Column(name="value")
+	private String value;
+	@Column(name="createddate")
 	private Date createdDate;
+	@Column(name="modifieddate")
 	private Date modifiedDate;
+	@Column(name="createdby")
 	private String createdBy;
+	@Column(name="modifiedby")
 	private String modifiedBy;
+	
+	@ManyToOne
+	@JoinColumn(name = "buildingid")
+	private BuildingEntity building;
+	public BuildingEntity getBuilding() {
+		return building;
+	}
+	public void setBuilding(BuildingEntity building) {
+		this.building = building;
+	}
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Integer getValue() {
+	public String getValue() {
 		return value;
 	}
-	public void setValue(Integer value) {
+	public void setValue(String value) {
 		this.value = value;
-	}
-	public Long getBuildingId() {
-		return buildingId;
-	}
-	public void setBuildingId(Long buildingId) {
-		this.buildingId = buildingId;
 	}
 	public Date getCreatedDate() {
 		return createdDate;
