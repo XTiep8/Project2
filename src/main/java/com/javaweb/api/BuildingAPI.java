@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javaweb.model.BuildingDTO;
 import com.javaweb.service.BuildingService;
 
-
 @RestController
 public class BuildingAPI {
 
@@ -21,10 +20,10 @@ public class BuildingAPI {
 	private BuildingService buildingService;
 
 	@GetMapping(value = "/api/building/")
-	public List<BuildingDTO> getBuilding(@RequestParam Map<String,Object> params) {
-		System.out.println("hello");
-		//List<BuildingDTO> result = buildingService.findAll(params);
-		return null;
+	public List<BuildingDTO> getBuilding(@RequestParam Map<String,Object> params,
+										@RequestParam(name = "typeCode", required = false) List<String> typeCode) {
+		List<BuildingDTO> result = buildingService.findAll(params,typeCode);
+		return result;
 	}
 	
 

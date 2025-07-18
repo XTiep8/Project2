@@ -4,53 +4,20 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 //@Entity
 //@Table(name = "user")
 public class UserEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "username")
 	private String userName;
-	@Column(name = "password")
 	private String passWord;
-	@Column(name = "fullname")
 	private String fullName;
-	@Column(name = "phone")
 	private String phone;
-	@Column(name = "email")
 	private String email;
-	@Column(name = "status")
 	private Integer status;
-	@Column(name = "createddate")
 	private Date createdDate;
-	@Column(name = "modifieddate")
 	private Date modifiedDate;
-	@Column(name = "createdby")
 	private String createdBy;
-	@Column(name = "modifiedby")
 	private String modifiedBy;
-	
-	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
-	public List<UserRoleEntity> getUserRoleEntities() {
-		return userRoleEntities;
-	}
-
-	public void setUserRoleEntities(List<UserRoleEntity> userRoleEntities) {
-		this.userRoleEntities = userRoleEntities;
-	}
 
 	public Long getId() {
 		return id;

@@ -17,13 +17,13 @@ public class BuildingServiceImpl implements BuildingService {
 	@Autowired
 	private BuildingRepository buildingRepository;
 	@Override
-	public List<BuildingDTO> findAll(Map<String, Object> params) {
-		List<BuildingEntity> buildingEntities = buildingRepository.findAll(params) ;
+	public List<BuildingDTO> findAll(Map<String, Object> params,  List<String> typeCode) {
+		List<BuildingEntity> buildingEntities = buildingRepository.findAll(params,typeCode) ;
 		List<BuildingDTO> result = new ArrayList<BuildingDTO>();
 		for (BuildingEntity item : buildingEntities) {
 			BuildingDTO building = new BuildingDTO();
 			building.setName(item.getName());
-			building.setAddress(item.getStreet() + ',' + item.getWard() + ',' + item.getDistrict().getName());
+			building.setAddress(item.getStreet() + ',' + item.getWard());
 			building.setNumberOfBasement(item.getNumberOfBasement());
 			building.setManagerName(item.getManagerName());
 			building.setManagerPhoneNumber(item.getManagerPhoneNumber());

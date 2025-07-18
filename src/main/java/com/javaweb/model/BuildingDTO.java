@@ -8,15 +8,17 @@ public class BuildingDTO {
 	private String address;
 	private String managerName;
 	private String managerPhoneNumber;
-	private Integer floorArea;
+	private Long floorArea;
 	private Integer rentPrice;
 	private String serviceFee;
 	private BigDecimal brokerageFee;
-	public Integer getFloorArea() {
+	
+
+	public Long getFloorArea() {
 		return floorArea;
 	}
 
-	public void setFloorArea(Integer floorArea) {
+	public void setFloorArea(Long floorArea) {
 		this.floorArea = floorArea;
 	}
 
@@ -59,15 +61,6 @@ public class BuildingDTO {
 	public void setManagerPhoneNumber(String managerPhoneNumber) {
 		this.managerPhoneNumber = managerPhoneNumber;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Integer getNumberOfBasement() {
 		return numberOfBasement;
 	}
@@ -82,6 +75,14 @@ public class BuildingDTO {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	
