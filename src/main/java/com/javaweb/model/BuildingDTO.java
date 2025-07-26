@@ -9,6 +9,15 @@ public class BuildingDTO {
 	private String managerName;
 	private String managerPhoneNumber;
 	private Long floorArea;
+	private String rentArea;
+	public String getRentArea() {
+		return rentArea;
+	}
+
+	public void setRentArea(String rentArea) {
+		this.rentArea = rentArea;
+	}
+
 	private String emptyArea;
 	public String getEmptyArea() {
 		return emptyArea;

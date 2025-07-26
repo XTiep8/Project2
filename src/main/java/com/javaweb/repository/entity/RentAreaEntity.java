@@ -5,9 +5,7 @@ import java.sql.Date;
 public class RentAreaEntity {
 
 	private Long id;
-
 	private String value;
-
 	private Date createdDate;
 	private Date modifiedDate;
 	private String createdBy;
