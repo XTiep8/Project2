@@ -16,11 +16,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "building")
+@Entity
+@Table(name = "building")
 public class BuildingEntity {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "name")
@@ -39,7 +39,7 @@ public class BuildingEntity {
 	private Integer numberOfBasement;
 	
 	@Column(name = "floorarea")
-	private Integer floorArea;
+	private Long floorArea;
 	
 	@Column(name = "direction")
 	private String direction;
@@ -118,6 +118,9 @@ public class BuildingEntity {
 	
 	@Column(name = "districname")
 	private String districtName;
+	
+//	@Column(name = "districtid")
+//	private Long districtId;
 	
 	@ManyToOne
 	@JoinColumn(name = "districtid")
@@ -198,13 +201,17 @@ public class BuildingEntity {
 		this.numberOfBasement = numberOfBasement;
 	}
 
-	public Integer getFloorArea() {
+	
+
+	public Long getFloorArea() {
 		return floorArea;
 	}
 
-	public void setFloorArea(Integer floorArea) {
+
+	public void setFloorArea(Long floorArea) {
 		this.floorArea = floorArea;
 	}
+
 
 	public String getDirection() {
 		return direction;

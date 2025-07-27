@@ -10,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-//@Entity
-//@Table(name="rentarea")
+@Entity
+@Table(name="rentarea")
 public class RentAreaEntity {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="value")
 	private String value;

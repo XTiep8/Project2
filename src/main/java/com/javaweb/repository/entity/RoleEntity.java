@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-//@Entity
-//@Table(name="role")
+@Entity
+@Table(name="role")
 public class RoleEntity {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)

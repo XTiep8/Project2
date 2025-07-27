@@ -11,8 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="userrole")
+@Entity
+@Table(name="userrole")
 public class UserRoleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

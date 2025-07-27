@@ -12,11 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "district")
+@Entity
+@Table(name = "district")
 public class DistrictEntity {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name = "code")
 	private String code;
