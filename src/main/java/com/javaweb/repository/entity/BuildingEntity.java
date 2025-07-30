@@ -22,111 +22,105 @@ public class BuildingEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "street")
 	private String street;
-	
+
 	@Column(name = "ward")
 	private String ward;
-	
+
 	@Column(name = "structure")
 	private String structure;
-	
+
 	@Column(name = "numberofbasement")
 	private Integer numberOfBasement;
-	
+
 	@Column(name = "floorarea")
 	private Long floorArea;
-	
+
 	@Column(name = "direction")
 	private String direction;
-	
+
 	@Column(name = "level")
 	private String level;
-	
+
 	@Column(name = "rentprice")
 	private Integer rentPrice;
-	
+
 	@Column(name = "rentpricedescription")
 	private String rentPriceDescription;
-	
+
 	@Column(name = "servicefee")
 	private String serviceFee;
-	
+
 	@Column(name = "carfee")
 	private String carFee;
-	
+
 	@Column(name = "motorbikefee")
 	private String motorbikeFee;
-	
+
 	@Column(name = "overtimefee")
 	private String overtimeFee;
-	
+
 	@Column(name = "waterfee")
 	private String waterFee;
-	
+
 	@Column(name = "electricityfee")
 	private String electricityFee;
-	
-	@Column(name = "desposit")
+
+	@Column(name = "deposit")
 	private String deposit;
-	
+
 	@Column(name = "payment")
 	private String payment;
-	
+
 	@Column(name = "renttime")
 	private String rentTime;
-	
+
 	@Column(name = "decorationtime")
 	private String decorationTime;
-	
+
 	@Column(name = "brokeragefee")
 	private BigDecimal brokerageFee;
-	
+
 	@Column(name = "note")
 	private String note;
-	
+
 	@Column(name = "linkofbuilding")
 	private String linkOfBuilding;
-	
+
 	@Column(name = "map")
 	private String map;
-	
+
 	@Column(name = "image")
 	private String image;
-	
-	@Column(name = "createdate")
+
+	@Column(name = "createddate")
 	private Date createdDate;
-	
+
 	@Column(name = "modifieddate")
 	private Date modifiedDate;
-	
-	@Column(name = "createby")
+
+	@Column(name = "createdby")
 	private String createdBy;
-	
+
 	@Column(name = "modifiedby")
 	private String modifiedBy;
-	
+
 	@Column(name = "managername")
 	private String managerName;
-	
+
 	@Column(name = "managerphonenumber")
 	private String managerPhoneNumber;
-	
-	@Column(name = "districname")
-	private String districtName;
-	
-//	@Column(name = "districtid")
-//	private Long districtId;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "districtid")
 	private DistrictEntity district;
 
-	@OneToMany(mappedBy = "building", fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
 	private List<RentAreaEntity> renarea = new ArrayList<>();
 
 	public List<RentAreaEntity> getRenarea() {
@@ -135,14 +129,6 @@ public class BuildingEntity {
 
 	public void setRenarea(List<RentAreaEntity> renarea) {
 		this.renarea = renarea;
-	}
-
-	public String getDistrictName() {
-		return districtName;
-	}
-
-	public void setDistrictName(String districtName) {
-		this.districtName = districtName;
 	}
 
 	public Long getId() {
@@ -201,17 +187,13 @@ public class BuildingEntity {
 		this.numberOfBasement = numberOfBasement;
 	}
 
-	
-
 	public Long getFloorArea() {
 		return floorArea;
 	}
 
-
 	public void setFloorArea(Long floorArea) {
 		this.floorArea = floorArea;
 	}
-
 
 	public String getDirection() {
 		return direction;
