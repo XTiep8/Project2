@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -42,14 +44,23 @@ public class UserEntity {
 	@Column(name = "modifiedby")
 	private String modifiedBy;
 	
-	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
-	public List<UserRoleEntity> getUserRoleEntities() {
-		return userRoleEntities;
+//	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+//	private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
+//	public List<UserRoleEntity> getUserRoleEntities() {
+//		return userRoleEntities;
+//	}
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_role",
+	joinColumns = @JoinColumn(name = "userid", nullable = false),
+	inverseJoinColumns = @JoinColumn(name = "roleid", nullable = false))
+	private List<RoleEntity> roles = new ArrayList<>();
+
+	public List<RoleEntity> getRoles() {
+		return roles;
 	}
 
-	public void setUserRoleEntities(List<UserRoleEntity> userRoleEntities) {
-		this.userRoleEntities = userRoleEntities;
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
 	}
 
 	public Long getId() {
