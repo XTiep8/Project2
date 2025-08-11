@@ -20,7 +20,6 @@ public class BuildingDTOConverter {
 	
 	@Autowired
 	private ModelMapper modelMapper;
-	
 	public BuildingDTO toBuildingDTO(BuildingEntity item) {
 		BuildingDTO building = modelMapper.map(item, BuildingDTO.class);
 		building.setAddress(item.getStreet() + ',' + item.getWard() + ',' + item.getDistrict().getName());
